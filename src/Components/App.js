@@ -16,9 +16,10 @@ export default class App extends React.Component {
       rank: {},
       status: {}
     }
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
+   componentDidMount() {
     fetch("http://localhost:3001/gameData")
       .then(res => res.json())
       .then((gameData) => {
@@ -53,25 +54,15 @@ export default class App extends React.Component {
       });
   }
 
-  handleChange(e, jud, val) {
+  handleChange(jud, val) {
+    console.log(this);
+    console.log(jud, val);
     if (jud === "searchInput") {
-      e.preventDefault();
       this.setState({ searchInput: val });
-    }
-    if (jud === "platforms") {
-      let tmp = this.state.platforms;
+    } else {
+      let tmp = this.state[jud];
       tmp[val] = !tmp[val];
-      this.setState({platforms: tmp});
-    }
-    if (jud === "rank") {
-      let tmp = this.state.rank;
-      tmp[val] = !tmp[val];
-      this.setState({rank: tmp});
-    }
-    if (jud === "status") {
-      let tmp = this.state.status;
-      tmp[val] = !tmp[val];
-      this.setState({status: tmp});
+      this.setState({[jud]:tmp});
     }
   }
 
@@ -108,7 +99,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <Container>
-          <Search platforms={platformsList} rank={rankList} status={statusList} onChange={this.handleChange.bind(this)} />
+          <Search platforms={platformsList} rank={rankList} status={statusList} onChange={this.handleChange} />
         </Container>
         <Container>
           <GameTable gameData={gameData} />

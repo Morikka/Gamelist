@@ -7,7 +7,11 @@ function SearchInput(props) {
         <form style={{ display: 'flex', alignItems: 'center', }} noValidate autoComplete="off">
             <Grid style={{ paddingRight: '12px' }}> Search Keywords in Game Name: </Grid>
             <Grid>
-                <TextField onSubmit={e=>{e.preventDefault();}} onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} onChange={(e)=>props.onChange(e,"searchInput",e.target.value)}/>
+                <TextField
+                    onSubmit={e=>{e.preventDefault();}} 
+                    onKeyPress={e => { e.key === 'Enter' && e.preventDefault(); }} 
+                    onChange={e => {e.preventDefault(); props.onChange("searchInput",e.target.value)}}
+                />
             </Grid>
         </form>
     )
@@ -20,7 +24,7 @@ function SearchTags(props) {
                 <Grid style={{ paddingRight: '12px' }}>Platforms: </Grid>
                 <Grid item>
                     {props.platforms.map((item, index)=>(
-                        <FormControlLabel key={index} control={<Checkbox name={item} onChange={(e)=>props.onChange(e,"platforms",item)}/>} label={item} />
+                        <FormControlLabel key={index} control={<Checkbox name={item} onChange={() => props.onChange("platforms",item)}/>} label={item} />
                     ))}
                 </Grid>
             </FormGroup>
@@ -28,7 +32,7 @@ function SearchTags(props) {
                 <Grid style={{ paddingRight: '12px' }}>Ranking: </Grid>
                 <Grid item>
                     {props.rank.map((item, index)=>(
-                        <FormControlLabel key={index} control={<Checkbox name={item} onChange={(e)=>props.onChange(e,"rank",item)}/>} label={item} />
+                        <FormControlLabel key={index} control={<Checkbox name={item} onChange={() => props.onChange("rank",item)}/>} label={item} />
                     ))}
                 </Grid>
             </FormGroup>
@@ -36,7 +40,7 @@ function SearchTags(props) {
                 <Grid style={{ paddingRight: '12px' }}>Status: </Grid>
                 <Grid item>
                 {props.status.map((item, index)=>(
-                        <FormControlLabel key={index} control={<Checkbox name={item} onChange={(e)=>props.onChange(e,"status",item)}/>} label={item} />
+                        <FormControlLabel key={index} control={<Checkbox name={item} onChange={() => props.onChange("status",item)}/>} label={item} />
                     ))}
                 </Grid>
             </FormGroup>
@@ -45,6 +49,10 @@ function SearchTags(props) {
 }
 
 export default class Search extends React.Component {
+    constructor(props){
+        super(props);
+
+    }
     render() {
         return (
             <Container>
