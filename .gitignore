@@ -2,6 +2,7 @@
 /.idea
 Note.md
 secret.js
+.env
 
 # dependencies
 /node_modules

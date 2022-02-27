@@ -19,11 +19,12 @@ async function getPageData(){
     for(item in myPage["results"]){
         tmpItem = {};
         tmp = myPage["results"][item]["properties"];
+        console.log(tmp);
         tmpItem["Name"] = tmp["Name"]["title"][0]["plain_text"];
-        tmpItem["TranslatedName"] = tmp["TranslatedName"]["rich_text"][0]["plain_text"];
-        tmpItem["Platform"] = tmp["Platform"]["select"]["name"];
-        tmpItem["Status"] = tmp["Status"]["select"]["name"];
-        tmpItem["Rank"] = tmp["Rank"]["select"]["name"];
+        tmpItem["TranslatedName"] = tmp["TranslatedName"]["rich_text"][0] ? tmp["TranslatedName"]["rich_text"][0]["plain_text"]: "";
+        tmpItem["Platform"] = tmp["Platform"] ? tmp["Platform"]["select"]["name"]: "";
+        tmpItem["Status"] =  tmp["Status"] ? tmp["Status"]["select"]["name"]:" ";
+        tmpItem["Rank"] = tmp["Rank"] ? tmp["Rank"]["select"]["name"]:" ";
         tmpItem["Notes"] = tmp["Notes"]["rich_text"][0] ? tmp["Notes"]["rich_text"][0]["plain_text"] : "";
         results.push(tmpItem);
     }

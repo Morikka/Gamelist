@@ -1,13 +1,14 @@
 import React from "react";
 
-import { Grid, Container, Box, TextField, FormControlLabel, Checkbox, FormGroup } from '@material-ui/core';
+import { Grid, Container, Box, TextField, FormControlLabel, Checkbox, FormGroup } from '@mui/material';
 
 function SearchInput(props) {
     return (
         <form style={{ display: 'flex', alignItems: 'center', }} noValidate autoComplete="off">
-            <Grid style={{ paddingRight: '12px' }}> Search Keywords in Game Name: </Grid>
+            <Grid style={{ paddingRight: '12px' }}> Keywords: </Grid>
             <Grid>
                 <TextField
+                    variant="standard"
                     onSubmit={e=>{e.preventDefault();}} 
                     onKeyPress={e => { e.key === 'Enter' && e.preventDefault(); }} 
                     onChange={e => {e.preventDefault(); props.onChange("searchInput",e.target.value)}}
@@ -56,8 +57,8 @@ export default class Search extends React.Component {
     render() {
         return (
             <Container>
-                <SearchInput onChange={this.props.onChange} />
                 <SearchTags platforms={this.props.platforms} rank={this.props.rank} status={this.props.status} onChange={this.props.onChange}/>
+                <SearchInput onChange={this.props.onChange} />
             </Container>
         )
     }

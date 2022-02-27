@@ -104,7 +104,7 @@ export default class App extends React.Component {
         <Container>
           <GameTable gameData={gameData} />
         </Container>
-      </div>
+        </div>
     );
   }
 }

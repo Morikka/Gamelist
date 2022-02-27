@@ -1,19 +1,23 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import Box from '@mui/material/Box';
 
 export default function Navbar(){
     return (
         <AppBar position="static">
   <Toolbar>
-    {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-      <MenuIcon />
-    </IconButton> */}
-    <Typography variant="h6">
+      <Box sx={{ pr: '10px' }}>
+        <SportsEsportsIcon fontSize="large"/>
+      </Box>
+    <Typography
+        variant="h6"
+        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+    >
       Morikka's Recommended Games / 猫猫的游戏安利
     </Typography>
-    {/* <Button color="inherit">Login</Button> */}
   </Toolbar>
 </AppBar>
     )

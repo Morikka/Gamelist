@@ -26,3 +26,5 @@ Set up Notion account and create a Notion database. Apply Notion API.
 + React.js
 + Node.js
 + Notion API
+
+
