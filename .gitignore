@@ -3,6 +3,7 @@
 Note.md
 secret.js
 .env
+.yarn.lock
 
 # dependencies
 /node_modules
