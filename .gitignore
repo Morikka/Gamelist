@@ -3,6 +3,8 @@
 Note.md
 secret.js
 .env
+yarn.lock
+yarn-error.log
 
 # dependencies
 /node_modules
