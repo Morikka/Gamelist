@@ -20,7 +20,7 @@ export default class App extends React.Component {
   }
 
    componentDidMount() {
-    fetch("http://localhost:3001/gameData")
+    fetch("/gameData")
       .then(res => res.json())
       .then((gameData) => {
         let platforms = {};
